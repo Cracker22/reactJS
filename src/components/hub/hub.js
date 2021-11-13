@@ -12,6 +12,7 @@ const HubItem = React.lazy(() => import('./hubItem'));
 const Hub = () => {
     let images = useSelector(state => state);
     console.log(images,'images');
+    let imagesAllData=images.allImages.images
 
     console.log("imagesNew  ",images)
 
@@ -43,7 +44,7 @@ const Hub = () => {
 
         <Row className={"mt-2"}>
 
-            {images.map(image =>
+            {imagesAllData.map(image =>
                 <Suspense fallback={<div>Loading......</div>}>
                     <HubItem  image={image}/>
                 </Suspense>)}
