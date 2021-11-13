@@ -1,0 +1,5 @@
+export const ActionType={
+    SET_IMAGES:"SET_IMAGES",
+    LIKE_IMAGE:"LIKE_IMAGE",
+    DISLIKE_IMAGE:"DISLIKE_IMAGE"
+}
