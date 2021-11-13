@@ -8,9 +8,11 @@ import logo from './logo.svg';
 
 const NavbarComponent = (props) => {
     const {handleLoginFlag}=props
+    let toggleActive;
 
     const setLoginFlag=(loginFlag)=>{
         handleLoginFlag(loginFlag);
+        toggleActive=loginFlag
     }
 
     return (
@@ -28,10 +30,10 @@ const NavbarComponent = (props) => {
                 </Navbar.Brand>
 
                 <Nav>
-                    <Nav.Link onClick={() => setLoginFlag(true)}>
+                    <Nav.Link  onClick={() => setLoginFlag(true)}>
                         Login
                     </Nav.Link>
-                    <Nav.Link onClick={() => setLoginFlag(false)}>
+                    <Nav.Link    onClick={() => setLoginFlag(false)}>
                         Signup
                     </Nav.Link>
                 </Nav>

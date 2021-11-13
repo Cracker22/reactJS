@@ -7,16 +7,17 @@ export const setImages=(images)=>{
     }
 }
 
-export const likeImage=(image)=>{
+export const changeFlagStatus=(image)=>{
+    console.log("I am here")
     return{
-        type:ActionType.LIKE_IMAGE,
+        type:ActionType.CHANGE_LIKE_FLAG,
         payload:image
     }
 }
 
-export const disLikeImage=(image)=>{
+export const userList=(user)=>{
     return{
-        type:ActionType.DISLIKE_IMAGE,
-        payload:image
+        type:ActionType.USER_LIST,
+        payload:user
     }
 }

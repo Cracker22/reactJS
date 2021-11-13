@@ -10,21 +10,24 @@ import { setImages } from "./components/redux/action/action"
 
 
 function App() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
 
-    useEffect(() => {
-        axios.get(`https://picsum.photos/v2/list?limit=30`).then((res) => {
-           
-            let responseDatas=res.data.map(responseData=>{
-                responseData.isLiked=false;
-                responseData.isDisliked=false;
-                return responseData
-            })
-            console.log("Response data",responseDatas)
-            dispatch(setImages(responseDatas))
-        })
+    // console.log("app called devil")
 
-    }, [])
+    // useEffect(() => {
+    //     console.log("useEffect called devil")
+    //     axios.get(`https://picsum.photos/v2/list?limit=30`).then((res) => {
+    //         console.log("data called devil")
+    //         let responseDatas=res.data.map(responseData=>{
+    //             responseData.isLiked=false;
+    //             responseData.isDisliked=false;
+    //             return responseData
+    //         })
+    //         console.log("Response data",responseDatas)
+    //         dispatch(setImages(responseDatas))
+    //     })
+
+    // }, [])
 
     return (
         <Router>
