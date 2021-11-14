@@ -1,6 +1,5 @@
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, useEffect } from 'react';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import logo from '../../logo.svg';
@@ -11,7 +10,6 @@ import { setImages } from "../redux/action/action"
 import axios from 'axios';
 import HubItem from './hubItem'
 import './hub.css'
-//const HubItem = React.lazy(() => import('./hubItem'));
 
 
 const Hub = () => {

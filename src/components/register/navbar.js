@@ -8,11 +8,11 @@ import logo from './logo.svg';
 
 const NavbarComponent = (props) => {
     const {handleLoginFlag}=props
-    let toggleActive;
+   // let toggleActive;
 
     const setLoginFlag=(loginFlag)=>{
         handleLoginFlag(loginFlag);
-        toggleActive=loginFlag
+       // toggleActive=loginFlag
     }
 
     return (

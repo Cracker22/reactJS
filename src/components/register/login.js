@@ -14,7 +14,7 @@ const Login = () => {
         console.log(event)
         event.preventDefault();
         console.log(email,password,'devil lof=gin')
-        let findUser=userList.allImages.user.findIndex(user=>user.email==email && user.password==password)
+        let findUser=userList.allImages.user.findIndex(user=>user.email===email && user.password===password)
         if(findUser>-1)
         navigate('/hub')
          else 

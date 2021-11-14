@@ -1,10 +1,8 @@
 import React, { useState,Suspense } from 'react';
 import Row from 'react-bootstrap/Col';
 import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
-import Image from 'react-bootstrap/Image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import {  faExpandAlt, faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
+import {faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
 import {changeFlagStatus} from "../redux/action/action"
 import { useDispatch } from 'react-redux';
 import Model from "./model"
@@ -27,7 +25,7 @@ const HubItem = (props) => {
     const closeShowModel=useRef();
     
     const toggleLike=()=>{
-        
+ 
         setLikedClass(!likedClass)
         image.isLiked=!image.isLiked;
 
@@ -90,7 +88,7 @@ const HubItem = (props) => {
             </Card.Body>
         </Card>
     </Col> */}
-    <Model ref={closeShowModel} image={image}/>
+    <Model ref={closeShowModel} image={image} toggleLike={toggleLike} toggleDislike={toggleDislike}/>
     </>)
 }
 

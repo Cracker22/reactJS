@@ -1,12 +1,9 @@
-import React, { useState,useEffect, Component } from 'react';
-import axios from 'axios';
-import { useDispatch,useSelector } from 'react-redux';
+import React from 'react';
 import './App.css';
 import { memo } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link, Switch } from 'react-router-dom';
 import Register from './components/register/register';
 import Hub from './components/hub/hub';
-import { setImages } from "./components/redux/action/action"
 
 
 function App() {

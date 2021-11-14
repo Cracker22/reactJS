@@ -4,8 +4,10 @@ import Col from 'react-bootstrap/Col';
 import Image from 'react-bootstrap/Image';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
-import './hub.css'
-const { forwardRef, useRef, useImperativeHandle } = React;
+import './hub.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {   faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
+const { forwardRef, useImperativeHandle } = React;
 
 const Model=forwardRef((props, ref)=>{
 
@@ -16,17 +18,19 @@ const Model=forwardRef((props, ref)=>{
 
 
     const [show, setShow] = useState(false);
-    let {image}=props;
+    let {image,toggleLike,toggleDislike}=props;
     console.log(image)
-
+    const likedClass=image.isLiked
+    const disLikedClass=image.isDisliked
     useImperativeHandle(ref, () => ({
          handleClose : () => setShow(false),
          handleShow :() => setShow(true)
 
     }))
 
+console.log(likedClass,disLikedClass,'heart')
+
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     return(<>
           <Modal  size="lg" show={show} onHide={handleClose}>
         <Modal.Header closeButton>
@@ -40,6 +44,8 @@ const Model=forwardRef((props, ref)=>{
   </Row>
         </Modal.Body>
         <Modal.Footer>
+        <FontAwesomeIcon onClick={()=>toggleLike()} style={{"marginRight":"10%"}} className={"text-"+(likedClass?"danger":"secondary")} size="lg" icon={faHeart} />
+        <FontAwesomeIcon onClick={()=>toggleDislike()} style={{"marginRight":"33%"}}  className={"text-"+(disLikedClass?"danger":"secondary")} size="lg" icon={faHeartBroken} />
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>

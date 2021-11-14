@@ -13,7 +13,7 @@ console.log(userList,'singnup')
         console.log(event);
         event.preventDefault();
     
-        let userCheck=userListData.allImages.user.findIndex(user=>user.email==email)
+        let userCheck=userListData.allImages.user.findIndex(user=>user.email===email)
         if(userCheck>-1)
         alert("Email already exist")
         else{
