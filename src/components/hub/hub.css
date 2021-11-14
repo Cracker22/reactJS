@@ -1,0 +1,11 @@
+
+.colStyle{
+    border-radius:10px;
+    border: 1px solid #ccc;
+}
+.authorClass{
+    opacity: .3;
+    font-size: 15px;
+    position: absolute;
+    top: 45px;
+}

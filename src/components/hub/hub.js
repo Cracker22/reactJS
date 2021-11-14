@@ -1,5 +1,6 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import logo from '../../logo.svg';
@@ -8,8 +9,8 @@ import Container from 'react-bootstrap/Container';
 import { useNavigate } from "react-router-dom";
 import { setImages } from "../redux/action/action"
 import axios from 'axios';
-
-const HubItem = React.lazy(() => import('./hubItem'));
+import HubItem from './hubItem'
+//const HubItem = React.lazy(() => import('./hubItem'));
 
 
 const Hub = () => {
@@ -23,7 +24,7 @@ const Hub = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        console.log("useEffect called devil")
+        console.log("useEffect called devil  3744  5616")
         axios.get(`https://picsum.photos/v2/list?limit=30`).then((res) => {
             console.log("data called devil")
             let responseDatas = res.data.map(responseData => {
@@ -31,6 +32,7 @@ const Hub = () => {
                 responseData.isDisliked = false;
                 return responseData
             })
+            //.filter(img=>img.height>3000 && img.height<7000 )
             console.log("Response data", responseDatas)
             dispatch(setImages(responseDatas))
         })
@@ -79,9 +81,9 @@ const Hub = () => {
             {mode === "Browse" ? (
                 imagesAllData && imagesAllData.length > 0 ? (
                     imagesAllData.map((image) => (
-                        <Suspense fallback={<div>Loading......</div>}>
+                
                             <HubItem image={image} key={image.id} />
-                        </Suspense>
+                     
                     ))
                 ) : (
                     <div className="text-center">Nothing to show</div>
@@ -89,9 +91,9 @@ const Hub = () => {
             ) : mode === "Liked" ? (
                 likeData && likeData.length > 0 ? (
                     likeData.map((image) => (
-                        <Suspense fallback={<div>Loading......</div>}>
+                    
                             <HubItem image={image} key={image.id} />
-                        </Suspense>
+                        
                     ))
                 ) : (
                     <div className="text-center">Nothing to show</div>
@@ -99,9 +101,9 @@ const Hub = () => {
             ) : mode === "DisLiked" ? (
                 dislikeData && dislikeData.length > 0 ? (
                     dislikeData.map((image) => (
-                        <Suspense fallback={<div>Loading......</div>}>
+                    
                             <HubItem image={image} key={image.id} />
-                        </Suspense>
+                       
                     ))
                 ) : (
                     <div className="text-center">Nothing to show</div>
