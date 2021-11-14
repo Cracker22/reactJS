@@ -85,7 +85,7 @@ const Hub = () => {
                      
                     ))
                 ) : (
-                    <div className="text-center">Nothing to show</div>
+                    <div className="text-center mt-4">Nothing to show</div>
                 )
             ) : mode === "Liked" ? (
                 likeData && likeData.length > 0 ? (
@@ -95,7 +95,7 @@ const Hub = () => {
                         
                     ))
                 ) : (
-                    <div className="text-center">Nothing to show</div>
+                    <div className="text-center mt-4">Nothing to show</div>
                 )
             ) : mode === "DisLiked" ? (
                 dislikeData && dislikeData.length > 0 ? (
@@ -105,7 +105,7 @@ const Hub = () => {
                        
                     ))
                 ) : (
-                    <div className="text-center">Nothing to show</div>
+                    <div className="text-center mt-4">Nothing to show</div>
                 )
             ) : (
                 <></>
