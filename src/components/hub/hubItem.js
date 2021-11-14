@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faHeart, faHeartBroken } from '@fortawesome/free-solid-svg-icons'
 import {changeFlagStatus} from "../redux/action/action"
 import { useDispatch } from 'react-redux';
+import { useSnackbar } from 'react-simple-snackbar'
 import Model from "./model"
 import './hub.css'
 const ImageRender = React.lazy(() => import('./image'));
@@ -17,9 +18,9 @@ const HubItem = (props) => {
         "width":"100%",
         "padding":"25%"
     }
-
+    const [openSnackbar] = useSnackbar({position:"bottom-right",style:{backgroundColor:"#AA14F0",color:"white"}})
     const dispatch = useDispatch();
-    const { image } = props;
+    const { image,mode } = props;
     const [likedClass,setLikedClass]=useState(image.isLiked?true:false)
     const [disLikedClass,setdisLikedClass]=useState(image.isDisliked?true:false)
     const closeShowModel=useRef();
@@ -36,8 +37,11 @@ const HubItem = (props) => {
         }
 
         dispatch(changeFlagStatus(image));
+     
+        openSnackbar(`User has liked the ${image.author}`)
     }
-
+//B91646
+//#AA14F0
     const toggleDislike=()=>{
         setdisLikedClass(!disLikedClass)
         image.isDisliked=!image.isDisliked;
@@ -47,6 +51,7 @@ const HubItem = (props) => {
             image.isLiked=false
         }
         dispatch(changeFlagStatus(image));
+        openSnackbar(`User has disliked the ${image.author}`)
     }
 
     return (<>
@@ -63,8 +68,8 @@ const HubItem = (props) => {
         {/* <Image onClick={() => closeShowModel.current.handleShow()}  style={imageStyle} className="mt-1 mx-1" src={image.download_url} alt={image.id} thumbnail /> */}
         </Row>
         <Row className="d-flex justify-content-evenly mt-1 colStyle ms-2">
-        <FontAwesomeIcon onClick={()=>toggleLike()} className={"text-"+(likedClass?"danger":"secondary")} size="xs" icon={faHeart} />
-        <FontAwesomeIcon onClick={()=>toggleDislike()} className={"text-"+(disLikedClass?"danger":"secondary")} size="xs" icon={faHeartBroken} />
+        <FontAwesomeIcon onClick={mode==="Browse"?()=>toggleLike():""} className={"text-"+(likedClass?"danger":"secondary")} size="xs" icon={faHeart} />
+        <FontAwesomeIcon onClick={mode==="Browse"?()=>toggleDislike():""} className={"text-"+(disLikedClass?"danger":"secondary")} size="xs" icon={faHeartBroken} />
         </Row>
   
     </Col>
@@ -88,7 +93,7 @@ const HubItem = (props) => {
             </Card.Body>
         </Card>
     </Col> */}
-    <Model ref={closeShowModel} image={image} toggleLike={toggleLike} toggleDislike={toggleDislike}/>
+    <Model ref={closeShowModel} image={image} mode={mode} toggleLike={toggleLike} toggleDislike={toggleDislike}/>
     </>)
 }
 

@@ -18,7 +18,7 @@ const Model=forwardRef((props, ref)=>{
 
 
     const [show, setShow] = useState(false);
-    let {image,toggleLike,toggleDislike}=props;
+    let {image,toggleLike,toggleDislike,mode}=props;
     console.log(image)
     const likedClass=image.isLiked
     const disLikedClass=image.isDisliked
@@ -44,8 +44,8 @@ console.log(likedClass,disLikedClass,'heart')
   </Row>
         </Modal.Body>
         <Modal.Footer>
-        <FontAwesomeIcon onClick={()=>toggleLike()} style={{"marginRight":"10%"}} className={"text-"+(likedClass?"danger":"secondary")} size="lg" icon={faHeart} />
-        <FontAwesomeIcon onClick={()=>toggleDislike()} style={{"marginRight":"33%"}}  className={"text-"+(disLikedClass?"danger":"secondary")} size="lg" icon={faHeartBroken} />
+        <FontAwesomeIcon onClick={mode==="Browse"?()=>toggleLike():""} style={{"marginRight":"10%"}} className={"text-"+(likedClass?"danger":"secondary")} size="lg" icon={faHeart} />
+        <FontAwesomeIcon onClick={mode==="Browse"?()=>toggleDislike():""} style={{"marginRight":"33%"}}  className={"text-"+(disLikedClass?"danger":"secondary")} size="lg" icon={faHeartBroken} />
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>

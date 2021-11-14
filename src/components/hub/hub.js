@@ -81,7 +81,7 @@ const Hub = () => {
                 imagesAllData && imagesAllData.length > 0 ? (
                     imagesAllData.map((image) => (
                 
-                            <HubItem image={image} key={image.id} />
+                            <HubItem image={image} key={image.id} mode={mode} />
                      
                     ))
                 ) : (
@@ -91,7 +91,7 @@ const Hub = () => {
                 likeData && likeData.length > 0 ? (
                     likeData.map((image) => (
                     
-                            <HubItem image={image} key={image.id} />
+                            <HubItem image={image} key={image.id} mode={mode} />
                         
                     ))
                 ) : (
@@ -101,7 +101,7 @@ const Hub = () => {
                 dislikeData && dislikeData.length > 0 ? (
                     dislikeData.map((image) => (
                     
-                            <HubItem image={image} key={image.id} />
+                            <HubItem image={image} key={image.id} mode={mode} />
                        
                     ))
                 ) : (

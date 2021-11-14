@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './components/register/register';
 import Hub from './components/hub/hub';
-
+import SnackbarProvider from 'react-simple-snackbar'
 
 function App() {
     // const dispatch = useDispatch();
@@ -27,7 +27,8 @@ function App() {
     // }, [])
 
     return (
-        <Router>
+        <SnackbarProvider>
+               <Router>
             <div className="App">
                 <Routes>
                     <Route exact path='/' element={<Register />}></Route>
@@ -35,6 +36,8 @@ function App() {
                 </Routes>
             </div>
         </Router>
+        </SnackbarProvider>
+     
     );
 
 
