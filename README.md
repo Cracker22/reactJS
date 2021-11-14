@@ -1,6 +1,17 @@
-# Getting Started with Create React App
+
+
+
+# Getting Started with Photo Hub App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Features
+Redux concept is used to handle the data for the app
+Two kinds of array is used - * userList * ImageList
+Create a user and login to the app
+It has the provision to like and dislike the images shown 
+On logout imageList data gets cleared but the userList data remains for future login attempts
+Data holded in store resets on hard refresh
 
 ## Available Scripts
 
