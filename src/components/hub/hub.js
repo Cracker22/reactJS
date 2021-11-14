@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { setImages } from "../redux/action/action"
 import axios from 'axios';
 import HubItem from './hubItem'
+import './hub.css'
 //const HubItem = React.lazy(() => import('./hubItem'));
 
 
@@ -53,7 +54,7 @@ const Hub = () => {
 
     return (<>
         <Row>
-            <Navbar bg="dark" variant="dark">
+            <Navbar  fixed="top" bg="dark" variant="dark">
                 <Container fluid>
                     <Navbar.Brand href="#home">
                         <img
@@ -77,7 +78,7 @@ const Hub = () => {
             </Navbar>
         </Row>
 
-        <Row className={"mt-2"}>
+        <Row className="rowPlacement">
             {mode === "Browse" ? (
                 imagesAllData && imagesAllData.length > 0 ? (
                     imagesAllData.map((image) => (
