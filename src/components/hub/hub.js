@@ -24,7 +24,7 @@ const Hub = () => {
 
     useEffect(() => {
         console.log("useEffect called devil  3744  5616")
-        axios.get(`https://picsum.photos/v2/list?limit=30`).then((res) => {
+        axios.get(`https://picsum.photos/v2/list?limit=32`).then((res) => {
             console.log("data called devil")
             let responseDatas = res.data.map(responseData => {
                 responseData.isLiked = false;
