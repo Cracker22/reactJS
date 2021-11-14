@@ -36,7 +36,7 @@ const Hub = () => {
             dispatch(setImages(responseDatas))
         })
 
-    }, [])
+    }, [dispatch])
 
     let likeData = imagesAllData.filter((image) => image.isLiked);
     let dislikeData = imagesAllData.filter((image) => image.isDisliked);

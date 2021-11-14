@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { memo } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Register from './components/register/register';
 import Hub from './components/hub/hub';
 
